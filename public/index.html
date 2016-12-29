@@ -77,8 +77,6 @@
                         this.$http.put('/tasks', this.newTask).success(function(response) {
                             this.newTask.id = response.created
                             this.tasks.push(this.newTask)
-                            console.log("Task created!")
-                            console.log(this.newTask)
                             this.newTask = {}
                         }).error(function(error) {
                             console.log(error)
@@ -89,8 +87,8 @@
                         // Use the $http client to delete a task by its id
                         this.$http.delete('/tasks/' + this.tasks[index].id).success(function(response) {
                             this.tasks.splice(index, 1)
-                            console.log("Task deleted!")
-                        }).error(function(error) {
+                        })
+                        .error(function(error) {
                             console.log(error)
                         })
                     }
